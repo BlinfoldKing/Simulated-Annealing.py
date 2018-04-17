@@ -3,9 +3,7 @@ import math
 import matplotlib.pyplot as plt
 
 def f (x1, x2):
-    return (((2 * (x1 ** 2)) + ((x2 ** 4) / 3)) * (x1 ** 2)) 
-    - (x1 * x2)
-    + ((4 * (x2 ** 2)) * (x2 ** 2)) 
+    return ((2 * (math.pow(x1,2)) + math.pow(x2,4)/3) * (math.pow(x1,2)))-(x1 * x2) + (4 * (math.pow(x2,2)) * (math.pow(x2,2)))
 
 def P (d, T):
     return math.exp ((-d)/T)
@@ -20,8 +18,8 @@ if __name__ == '__main__':
     solutions.append (currEval)
     while T1 != T2:
         newState = [random.uniform(-1, 1), random.uniform(-1, 1)]
-        Dif = f (*currState) - f (*newState)
-        if Dif > 0:
+        Dif = f (*newState) - f (*currState)
+        if Dif < 0:
             currState = newState
             currEval = f (*currState)
             solutions.append (currEval)
